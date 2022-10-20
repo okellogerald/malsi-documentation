@@ -1,12 +1,9 @@
 <template>
     <Layout>
 
-        <!-- Learn how to use images here: https://gridsome.org/docs/images -->
-        <g-image alt="Logo" src="~/assets/images/favicon.png" width="135" />
-
         <h1>ARCHITECTURE / SOFTWARE DESIGN</h1>
 
-        <h2>1/4: Architecture layers</h2>
+        <h2>1/3: Architecture layers</h2>
 
         <p>
             Malsi's architecture like many other architectures, is divided into layers. It is "mainly" divided into two
@@ -33,13 +30,19 @@
             saying UI = f(state) holds true for this case.
         </p>
 
-        <h2>2/4: Flow</h2>
+        <h2>2/3: Flow</h2>
 
         <g-image alt="Flow diagram" src="~/assets/images/flow.png" />
 
         <p>
             The first action will be triggered by the UI and then it's the state-notifier's job to emit specific states
             corresponding to different steps performed to complete that action.
+        </p>
+
+        <p>
+            Coming from the repositories are either models or exceptions, it depends on the server response. Both of
+            these are structured & pre-defined and take part in "what-state-to-emit-next" decisions by the
+            state-notifiers.
         </p>
 
         <p>
@@ -51,8 +54,16 @@
             A page can have access to (or listen to) multiple state notifiers, but each state-notifier only has access
             to a single repository, and each repository has access to a single API. This is also to obey SINGLE
             RESPONSIBILITY principle in a sense that each repository or state-notifier or api manages the activities of
-            a single feature in case of (apis and repositories) and state(in case of state-notifiers). More about this
-            in section 4: PAGES IN DETAIL
+            a single feature in case of (apis and repositories) and state(in case of state-notifiers).
+        </p>
+
+        <h2>3/3: Folder & Files Organization</h2>
+
+        <g-image alt="Folder & Files Organization" src="~/assets/images/files-and-folders-org.png" width="877.2"
+            height="661.3" fit="contain" />
+
+        <p>
+            As it is seen, the architecture itself is more of a layer-first as opposed to feature-first.
         </p>
 
         <p class="home-links">
