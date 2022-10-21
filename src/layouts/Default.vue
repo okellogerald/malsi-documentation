@@ -1,13 +1,9 @@
 <template>
     <div class="layout">
         <header class="header">
-            <strong>
-                <h1>MALSI</h1>
-            </strong>
             <nav class="nav">
-                <g-link class="nav__link" to="/">ARCHITECTURE OVERVIEW</g-link>
-                <g-link class="nav__link" to="/about/">PAGES IN DETAIL</g-link>
-                <g-link class="nav__link" to="/about/">STATE-NOTIFIERS IN DETAIL</g-link>
+                <g-link class="nav__link" to="/architecture/">ARCHITECTURE</g-link>
+                <g-link class="nav__link" to="/flow/">FLOW</g-link>
             </nav>
         </header>
         <slot />
@@ -24,7 +20,7 @@ query {
 
 <style>
 body {
-    font-family: "Gopher-Mono";
+    font-family: "Circular";
     margin: 0;
     padding: 0;
     line-height: 1.5;
@@ -54,6 +50,11 @@ body {
 @font-face {
     font-family: Gopher-Mono;
     src: url('../assets/fonts/GopherMono-Regular.ttf');
+    font-weight: normal;
+}
+@font-face {
+    font-family: Circular;
+    src: url('../assets/fonts/Circular.otf');
     font-weight: normal;
 }
 </style>

@@ -66,6 +66,76 @@
             As it is seen, the architecture itself is more of a layer-first as opposed to feature-first.
         </p>
 
+        <h1>PAGES IN DETAIL</h1>
+
+        <p>
+            This section is more about the interactions of pages in the code, and to clarify what was written in the
+            last
+            paragraph of the second section.
+        </p>
+
+        <g-image alt="Flow diagram" src="~/assets/images/page.png" />
+
+        <h2>1/2 Value-Notifiers vs State-Notifiers</h2>
+
+        <p>
+            Value notifiers are used to preserve the state of certain widgets in the page before sending complete
+            required data to the state-notifiers when a certain action is to be done. Value-notifiers have come into
+            action to avoid maintain the state of
+            widgets in the state notifiers. State notifiers will only be used in activities like logIn, signUp etc which
+            most of the time will require sending data to the server and getting a response back. Hence activities like
+            validating login or sign-up inputs or making sure that the
+            T·O·C checkbox is checked or similar issues are completely handled by the value notifiers.
+        </p>
+
+        <g-image alt="Flow diagram" src="~/assets/images/sample-uis.png" />
+
+        <p>
+            In the picture above are sample Registration & Post upload UIs. These UIs are used as an attempt to
+            demonstrate what sorts of activities will be handled by the value-notifiers and what activities by
+            state-notifiers.
+        </p>
+
+        <p>
+            In the registration UI, all validation activities here are to be handled by the page itself before sending
+            email and password to the state-notifier. Managing state in the widgets is mostly done in the app by
+            value-notifiers. This makes it easy to understand the logic in the state-notifiers. Code in the
+            state-notifier could be something like this:
+        </p>
+
+        <g-image alt="Flow diagram" src="~/assets/images/registration-code.png" width="700" />
+
+        <p>
+            In the post UI, all validation activities e.g. if caption is added (if that's required) or maintaining the
+            state of whether the location or tag buttons are tapped is all handled by the pages themeselves
+            and not state-notifiers. Code in the state-notifier could be like:
+        </p>
+
+        <g-image alt="Flow diagram" src="~/assets/images/upload-code.png" width="600" />
+
+        <h2>2/2 State listeners</h2>
+
+        <p>
+            State listeners have been used throughout the app for step-by-step processes. Consider the registration
+            process: It might go through 4 processes for it to be considered complete.
+        </p>
+
+        <g-image alt="Flow diagram" src="~/assets/images/registration.png" />
+
+        <p>
+            Code below shows one way that could be accomplished.
+        </p>
+
+        <g-image alt="Flow diagram" src="~/assets/images/registration-code-2.png" width="700" />
+
+        <p>
+            Code below shows one way that could be accomplished.
+        </p>
+
+        <g-image alt="Flow diagram" src="~/assets/images/listener-1.png" width="600"/>
+
+        <g-image alt="Flow diagram" src="~/assets/images/listener-2.png" width="700" />
+
         <p class="home-links">
             <a href="https://gridsome.org/docs/" target="_blank" rel="noopener">Gridsome Docs</a>
             <a href="https://github.com/gridsome/gridsome" target="_blank" rel="noopener">GitHub</a>
@@ -77,7 +147,7 @@
 <script>
 export default {
     metaInfo: {
-        title: 'Hello, world!'
+        title: 'ARCHITECTURE'
     }
 }
 </script>
